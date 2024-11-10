@@ -1,2 +1,7 @@
 # cpp-standard
-This contains a standard for a C++ project. Which can be developed across platform such as Windows, MacOS, etc.
+This outlines the basic standards for a C++ project that can be developed across multiple platforms, including Windows, macOS, and others.
+
+# Project contents
+- Basic C++ practices
+- Simple algorithms written in C++
+- Minimal CMake project setup
