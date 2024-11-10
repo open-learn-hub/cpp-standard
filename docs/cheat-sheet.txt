@@ -1,0 +1,5 @@
+[Compile and Run main.cpp]
+g++ src/main.cpp -o build/main && build/main && echo
+
+[Compile without link]
+g++ -c src/main.cpp -o build/main.o
