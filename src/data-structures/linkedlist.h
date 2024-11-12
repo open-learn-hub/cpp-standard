@@ -200,7 +200,7 @@ Node<T>** FindAll(const List<T>* list, const T value, int& outCount)
 }
 
 template<typename T>
-int Count(List<T>* list, std::function<bool(T)> predicate)
+int Count(const List<T>* list, std::function<bool(T)> predicate)
 {
     Node<T>* current = list->root;
     int counter = 0;
