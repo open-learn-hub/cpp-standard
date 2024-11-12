@@ -178,12 +178,13 @@ Node<T>** FindAll(const List<T>* list, const T value, int& outCount)
 {
     Node<T>* current = list->root;
     List<T>* res = CreateList<T>();
-    const std::function<bool(T)> func = [value](T item)
+    std::function<bool(T)> func = [value](T item)
     {
         return value == item;
     };
-    outCount = Count(list, func);
-    Node<T>* arr = new Node<T>*[outCount];
+    outCount = 0;
+    outCount = Count<T>(list, func);
+    Node<T>** arr = new Node<T>*[outCount];
     int arrIdx = 0;
     
     while (current != nullptr)
@@ -254,29 +255,29 @@ void PrintList(const List<T>* list)
     std::cout << "}" << std::endl;
 }
 
-template<typename T>
-void PrintNodes(Node<T>** arr, const int length)
-{
-    if (arr == nullptr)
-    {
-        std::cout << "{array null}" << std::endl;
-        return;
-    }
+// template<typename T>
+// void PrintNodes(Node<T>** arr, const int length)
+// {
+//     if (arr == nullptr)
+//     {
+//         std::cout << "{array null}" << std::endl;
+//         return;
+//     }
 
-    bool hasItem = false;
-    std::cout << "{" << std::endl;
-    for (int i = 0; i < length; i++)
-    {
-        std::cout << "\t[" << arr[i] << " : " << arr[i]->data << "]" << std::endl;
-        hasItem = true;
-    }
+//     bool hasItem = false;
+//     std::cout << "{" << std::endl;
+//     for (int i = 0; i < length; i++)
+//     {
+//         std::cout << "\t[" << arr[i] << " : " << arr[i]->data << "]" << std::endl;
+//         hasItem = true;
+//     }
     
-    if (!hasItem)
-    {
-        std::cout << std::endl;
-    }
-    std::cout << "}" << std::endl;
-}
+//     if (!hasItem)
+//     {
+//         std::cout << std::endl;
+//     }
+//     std::cout << "}" << std::endl;
+// }
 
 template<typename T>
 void PrintNode(const Node<T>* node)

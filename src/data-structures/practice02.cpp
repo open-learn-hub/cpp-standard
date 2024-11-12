@@ -18,6 +18,6 @@ void ExecutePractice02()
     PrintNode(GetNode(list, 1));
     std::cout << Count<int>(list) << std::endl;
     int length = 0;
-    Node<int>** foundArr = FindAll(list, 2, length);
-    PrintNodes<int>(foundArr, length);
+    FindAll<int>(list, 2, length);
+    // PrintNodes<int>(foundArr, length);
 }
