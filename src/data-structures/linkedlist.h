@@ -216,7 +216,7 @@ int Count(const List<T>* list, std::function<bool(T)> predicate)
 }
 
 template<typename T>
-int Count(List<T>* list)
+int Count(const List<T>* list)
 {
     Node<T>* current = list->root;
     int counter = 0;
@@ -255,29 +255,29 @@ void PrintList(const List<T>* list)
     std::cout << "}" << std::endl;
 }
 
-// template<typename T>
-// void PrintNodes(Node<T>** arr, const int length)
-// {
-//     if (arr == nullptr)
-//     {
-//         std::cout << "{array null}" << std::endl;
-//         return;
-//     }
+template<typename T>
+void PrintNodes(const Node<T>** arr, const int length)
+{
+    if (arr == nullptr)
+    {
+        std::cout << "{array null}" << std::endl;
+        return;
+    }
 
-//     bool hasItem = false;
-//     std::cout << "{" << std::endl;
-//     for (int i = 0; i < length; i++)
-//     {
-//         std::cout << "\t[" << arr[i] << " : " << arr[i]->data << "]" << std::endl;
-//         hasItem = true;
-//     }
+    bool hasItem = false;
+    std::cout << "{" << std::endl;
+    for (int i = 0; i < length; i++)
+    {
+        std::cout << "\t[" << arr[i] << " : " << arr[i]->data << "]" << std::endl;
+        hasItem = true;
+    }
     
-//     if (!hasItem)
-//     {
-//         std::cout << std::endl;
-//     }
-//     std::cout << "}" << std::endl;
-// }
+    if (!hasItem)
+    {
+        std::cout << std::endl;
+    }
+    std::cout << "}" << std::endl;
+}
 
 template<typename T>
 void PrintNode(const Node<T>* node)
@@ -290,5 +290,30 @@ void PrintNode(const Node<T>* node)
 
     std::cout << "[" << node << " : " << node->data << "]" << std::endl;
 }
+
+template<typename T>
+void ReplaceFirst(const List<T>* list, const T value, const T newValue)
+{
+    if (list == nullptr)
+    {
+        std::cout << "[nullptr]" << std::endl; 
+        return;
+    }
+}
+
+template<typename T>
+void Copy(const List<T>* src, const List<T>* dest)
+{
+    if (src == nullptr || dest == nullptr)
+    {
+        std::cout << "Either is nullptr" << std::endl; 
+        return;
+    }
+
+    dest->root = src->root;
+}
+
+template<typename T>
+void Release(List<T>* list, bool deep) { }
 
 #endif
