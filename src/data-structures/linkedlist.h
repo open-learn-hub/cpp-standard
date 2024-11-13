@@ -182,7 +182,7 @@ Node<T>** FindAll(const List<T>* list, const T value, int& outCount)
     {
         return value == item;
     };
-    outCount = 0;
+    
     outCount = Count<T>(list, func);
     Node<T>** arr = new Node<T>*[outCount];
     int arrIdx = 0;
@@ -299,10 +299,21 @@ void ReplaceFirst(const List<T>* list, const T value, const T newValue)
         std::cout << "[nullptr]" << std::endl; 
         return;
     }
+    Node<T>* current = list->root;
+    while (current != nullptr)
+    {
+        if (current->data == value)
+        {
+            current->data = newValue;
+            break;
+        }
+        current = current->pNext;
+    }
+    
 }
 
 template<typename T>
-void Copy(const List<T>* src, const List<T>* dest)
+void Copy(const List<T>* src, List<T>* dest)
 {
     if (src == nullptr || dest == nullptr)
     {
@@ -315,5 +326,23 @@ void Copy(const List<T>* src, const List<T>* dest)
 
 template<typename T>
 void Release(List<T>* list, bool deep) { }
+
+template<typename T>
+int FindIndex(const List<T>* list, const T value)
+{
+    Node<T>* current = list->root;
+    int foundIdx = -1;
+    
+    while (current != nullptr)
+    {
+        foundIdx++;
+        if (current->data == value)
+        {
+            return foundIdx;
+        }
+        current = current->pNext;
+    }
+    return foundIdx;
+}
 
 #endif
