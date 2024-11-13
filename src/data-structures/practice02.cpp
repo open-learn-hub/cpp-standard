@@ -2,7 +2,7 @@
 #include "data-structures/linkedlist.h"
 #include <iostream>
 
-void Excercise01()
+void practice02::Exercise01()
 {
     // 1.1 
     // See linkedlist.h
@@ -126,22 +126,66 @@ void Excercise01()
     PrintList(destList);
 }
 
-void Excercise02()
+void practice02::Exercise02()
 {
-    List<Student*>* students = CreateStudentList();
-    Student* student = GetLowestGPAStudent(students);
+    // 1.1 see studen.h
 
+    // 1.2 1.3 linkedlist.h
+
+    // 1.4 1.5 see AddHead and AddTail in linkedlist.h
+
+    // 1.6
+    List<Student*>* students = CreateStudentList();
+
+    // 1.7
     PrintStudents(students);
+
+    // 1.8
+    float highestGPA = GetHighestGPA(students);
+    std::cout << "The highest GPA " << highestGPA << std::endl;
+
+    // 1.9
+    StudentPtr found = FindStudentById(students, 123);
+    std::cout << "Find student by id 123" << std::endl;
+    PrintStudent(found);
+
+    // 1.10
+    Student* student = GetHighestGPAStudent(students);
+    std::cout << "Highest GPA student" << std::endl;
+    PrintStudent(student);
+
+    // 1.11
+    student = GetLowestGPAStudent(students);
+    std::cout << "Lowest GPA student" << std::endl;
+    PrintStudent(student);
 }
 
-void ExecutePractice02()
+void practice02::ExecutePractice02()
 {
-    Excercise02();
+    int totalExercises = 2;
+    std::cout << "Input Exercise (start from 1) To Run, there're " << totalExercises << " exercise(s)" << std::endl;
+    int idx;
+    cin >> idx;
+
+    switch (idx)
+    {
+        case 1:
+        Exercise01();
+        break;
+
+        case 2:
+        Exercise02();
+        break;
+
+        default:
+            std::cout << "Your input is invalid" << std::endl;
+            break;
+    }
 }
 
 
 // Excercise01
-Node<int>** GetNegativeItems(const List<int>* list, int& outLength)
+Node<int>** practice02::GetNegativeItems(const List<int>* list, int& outLength)
 {
     std::function<bool(int)> func = [](int value)
     {
@@ -164,7 +208,7 @@ Node<int>** GetNegativeItems(const List<int>* list, int& outLength)
     return arr;
 }
 
-Node<int>** GetPositiveItems(const List<int>* list, int& outLength)
+Node<int>** practice02::GetPositiveItems(const List<int>* list, int& outLength)
 {
     std::function<bool(int)> func = [](int value)
     {
@@ -187,7 +231,7 @@ Node<int>** GetPositiveItems(const List<int>* list, int& outLength)
     return arr;
 }
 
-Node<int>* GetLargestNegativeItem(const List<int>* list)
+Node<int>* practice02::GetLargestNegativeItem(const List<int>* list)
 {
     int length = 0;
     Node<int>** negatives = GetNegativeItems(list, length);
@@ -206,7 +250,7 @@ Node<int>* GetLargestNegativeItem(const List<int>* list)
     return res;
 
 }
-Node<int>* GetLargestOddItem(const List<int>* list)
+Node<int>* practice02::GetLargestOddItem(const List<int>* list)
 {
     int length = 0;
     Node<int>** negatives = GetNegativeItems(list, length);
@@ -233,7 +277,7 @@ Node<int>* GetLargestOddItem(const List<int>* list)
 }
 
 // Excercise02
-List<StudentPtr>* CreateStudentList()
+List<StudentPtr>* practice02::CreateStudentList()
 {
     List<Student*>* list = CreateList<Student*>();
     AddTail(list, new Student { .id = 123, .fullName = "Nguyen Van A", .gpa = 9.1, .performance = EAcademicPerformance::A });
@@ -247,23 +291,74 @@ List<StudentPtr>* CreateStudentList()
     AddTail(list, new Student { .id = 131, .fullName = "Nguyen Van K", .gpa = 9.0, .performance = EAcademicPerformance::A });
     return list;
 }
-StudentPtr GetHighestGPA(const List<StudentPtr>* list)
+float practice02::GetHighestGPA(const List<StudentPtr>* list)
 {
-    return nullptr;
+    StudentPtr student = GetHighestGPAStudent(list);
+    if (student != nullptr)
+    {
+        return student->gpa;
+    }
+    return -1;
 }
-StudentPtr GetHighestGPAStudent(const List<StudentPtr>* list)
+StudentPtr practice02::GetHighestGPAStudent(const List<StudentPtr>* list)
 {
-    return nullptr;
+    if (list == nullptr) return nullptr;
+
+    const Node<StudentPtr>* current = list->root;
+    StudentPtr res = nullptr;
+    
+    while (current != nullptr)
+    {
+        if (res == nullptr)
+        {
+            res = current->data;
+        }
+        else if (res->gpa < current->data->gpa)
+        {
+            res = current->data;
+        }
+        current = current->pNext;
+    }
+    return res;
 }
-StudentPtr GetLowestGPAStudent(const List<StudentPtr>* list)
+StudentPtr practice02::GetLowestGPAStudent(const List<StudentPtr>* list)
 {
-    return nullptr;
+    if (list == nullptr) return nullptr;
+
+    const Node<StudentPtr>* current = list->root;
+    StudentPtr res = nullptr;
+    
+    while (current != nullptr)
+    {
+        if (res == nullptr)
+        {
+            res = current->data;
+        }
+        else if (res->gpa > current->data->gpa)
+        {
+            res = current->data;
+        }
+        current = current->pNext;
+    }
+    return res;
 }
-StudentPtr FindStudentById(const List<StudentPtr>* list, const int id) 
+StudentPtr practice02::FindStudentById(const List<StudentPtr>* list, const int id) 
 { 
+    if (list == nullptr) return nullptr;
+
+    const Node<StudentPtr>* current = list->root;
+    
+    while (current != nullptr)
+    {
+        if(current->data->id == id)
+        {
+            return current->data;
+        }
+        current = current->pNext;
+    }
     return nullptr;
 }
-void PrintStudents(const List<StudentPtr>* list)
+void practice02::PrintStudents(const List<StudentPtr>* list)
 {
     if (list == nullptr) return;
 

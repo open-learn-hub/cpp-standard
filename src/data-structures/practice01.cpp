@@ -4,7 +4,9 @@
 #include "core/callback.h"
 #include "data-structures/employee.h"
 
-void FillArrayRandomly(int arr[], const int length, const int minValue, const int maxValue)
+using namespace practice01;
+
+void practice01::FillArrayRandomly(int arr[], const int length, const int minValue, const int maxValue)
 {
     for (int i = 0; i < length; i++)
     {
@@ -13,7 +15,7 @@ void FillArrayRandomly(int arr[], const int length, const int minValue, const in
     
 }
 
-int ArraySum(const int arr[], const int length)
+int practice01::ArraySum(const int arr[], const int length)
 {
     int sum = 0;
     for (int i = 0; i < length; i++)
@@ -24,7 +26,7 @@ int ArraySum(const int arr[], const int length)
     return sum;
 }
 
-int ArrayMultiple(const int arr[], const int length)
+int practice01::ArrayMultiple(const int arr[], const int length)
 {
     int res = 0;
     for (int i = 0; i < length; i++)
@@ -41,13 +43,13 @@ int ArrayMultiple(const int arr[], const int length)
     return res;
 }
 
-void SumAndMultiple(const int arr[], const int length, int& outSum, int& outMultiple)
+void practice01::SumAndMultiple(const int arr[], const int length, int& outSum, int& outMultiple)
 {
     outSum = ArraySum(arr, length);
     outMultiple = ArrayMultiple(arr, length);    
 }
 
-void FillArrayRandomly(float arr[], const int length, const float minValue, const float maxValue)
+void practice01::FillArrayRandomly(float arr[], const int length, const float minValue, const float maxValue)
 {
     for (int i = 0; i < length; i++)
     {
@@ -55,7 +57,7 @@ void FillArrayRandomly(float arr[], const int length, const float minValue, cons
     }
 }
 
-void Exercise01()
+void practice01::Exercise01()
 {
     std::cout << "Start Exercise 01" << std::endl;
     // 1.1
@@ -136,13 +138,13 @@ void Exercise01()
     std::cout << "Completed Exercise 01" << std::endl;
 }
 
-float* CreateExercise02Array(int& length)
+float* practice01::CreateExercise02Array(int& length)
 {
     length = 10;
     return new float[length] { 0.8f, 5.6f, 9.1f, 7.3f, 10.0f, 5.9f, 7.2f, 9.3f, 8.0f, 8.7f };
 }
 
-void Exercise02()
+void practice01::Exercise02()
 {
     std::cout << "Start Exercise 02" << std::endl;
 
@@ -225,7 +227,7 @@ void Exercise02()
     std::cout << "Completed Exercise 02" << std::endl;
 }
 
-void Exercise03()
+void practice01::Exercise03()
 {
     std::cout << "Start Exercise 03" << std::endl;
 
@@ -271,7 +273,7 @@ void Exercise03()
     std::cout << "Completed Exercise 03" << std::endl;
 }
 
-Employee** CreateEmployeeArray(int& outLength)
+Employee** practice01::CreateEmployeeArray(int& outLength)
 {
     outLength = 10;
     Employee** arr = new Employee*[outLength];
@@ -290,7 +292,7 @@ Employee** CreateEmployeeArray(int& outLength)
     return arr;
 }
 
-int CalculateCompanySalaryCost(const Employee* const* employees, const int length)
+int practice01::CalculateCompanySalaryCost(const Employee* const* employees, const int length)
 {
     int res = 0;
     for (int i = 0; i < length; i++)
@@ -300,7 +302,7 @@ int CalculateCompanySalaryCost(const Employee* const* employees, const int lengt
     return res;
 }
 
-int CalculateLowSalaryCost(const Employee* const* employees, const int length)
+int practice01::CalculateLowSalaryCost(const Employee* const* employees, const int length)
 {
     int res = 0;
     for (int i = 0; i < length; i++)
@@ -314,7 +316,7 @@ int CalculateLowSalaryCost(const Employee* const* employees, const int length)
     return res;
 }
 
-void ExecutePractice01()
+void practice01::ExecutePractice01()
 {
     int totalExercises = 3;
     std::cout << "Input Exercise (start from 1) To Run, there're " << totalExercises << " exercise(s)" << std::endl;
