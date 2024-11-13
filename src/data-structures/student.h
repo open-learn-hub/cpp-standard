@@ -19,6 +19,6 @@ struct Student
     enum EAcademicPerformance performance;
 };
 
-void PrintStudent(Student* student);
+void PrintStudent(const Student* student);
 
 #endif

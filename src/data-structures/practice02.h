@@ -16,8 +16,9 @@ Node<int>* GetLargestOddItem(const List<int>* list);
 
 // Excercise02
 List<Student*>* CreateStudentList();
-Student* GetHighestGPA(const List<Student*> list);
-Student* GetHighestGPAStudent(const List<Student*> list);
-Student* GetLowestGPAStudent(const List<Student*> list);
-Student* FindStudentById(const List<Student*> list, const int id);
+Student* GetHighestGPA(const List<Student*>* list);
+Student* GetHighestGPAStudent(const List<Student*>* list);
+Student* GetLowestGPAStudent(const List<Student*>* list);
+Student* FindStudentById(const List<Student*>* list, const int id);
+void PrintStudents(const List<Student*>* list);
 

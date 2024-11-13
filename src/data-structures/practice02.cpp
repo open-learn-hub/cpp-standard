@@ -128,12 +128,15 @@ void Excercise01()
 
 void Excercise02()
 {
+    List<Student*>* students = CreateStudentList();
+    Student* student = GetLowestGPAStudent(students);
 
+    PrintStudents(students);
 }
 
 void ExecutePractice02()
 {
-    Excercise01();
+    Excercise02();
 }
 
 
@@ -232,21 +235,42 @@ Node<int>* GetLargestOddItem(const List<int>* list)
 // Excercise02
 List<Student*>* CreateStudentList()
 {
-    return nullptr;
+    List<Student*>* list = CreateList<Student*>();
+    AddTail(list, new Student { .id = 123, .fullName = "Nguyen Van A", .gpa = 9.1, .performance = EAcademicPerformance::A });
+    AddTail(list, new Student { .id = 124, .fullName = "Nguyen Van B", .gpa = 8.8, .performance = EAcademicPerformance::A });
+    AddTail(list, new Student { .id = 125, .fullName = "Nguyen Van C", .gpa = 9.1, .performance = EAcademicPerformance::A });
+    AddTail(list, new Student { .id = 126, .fullName = "Nguyen Van D", .gpa = 2.1, .performance = EAcademicPerformance::D });
+    AddTail(list, new Student { .id = 127, .fullName = "Nguyen Van E", .gpa = 9.7, .performance = EAcademicPerformance::A });
+    AddTail(list, new Student { .id = 128, .fullName = "Nguyen Van F", .gpa = 4.1, .performance = EAcademicPerformance::C });
+    AddTail(list, new Student { .id = 129, .fullName = "Nguyen Van G", .gpa = 8.3, .performance = EAcademicPerformance::A });
+    AddTail(list, new Student { .id = 130, .fullName = "Nguyen Van H", .gpa = 7.9, .performance = EAcademicPerformance::B });
+    AddTail(list, new Student { .id = 131, .fullName = "Nguyen Van K", .gpa = 9.0, .performance = EAcademicPerformance::A });
+    return list;
 }
-Student* GetHighestGPA(const List<Student*> list)
+Student* GetHighestGPA(const List<Student*>* list)
 {
     return nullptr;
 }
-Student* GetHighestGPAStudent(const List<Student*> list)
+Student* GetHighestGPAStudent(const List<Student*>* list)
 {
     return nullptr;
 }
-Student* GetLowestGPAStudent(const List<Student*> list)
+Student* GetLowestGPAStudent(const List<Student*>* list)
 {
     return nullptr;
 }
-Student* FindStudentById(const List<Student*> list, const int id) 
+Student* FindStudentById(const List<Student*>* list, const int id) 
 { 
     return nullptr;
+}
+void PrintStudents(const List<Student*>* list)
+{
+    if (list == nullptr) return;
+
+    Node<Student*>* current = list->root;;
+    while (current != nullptr)
+    {
+        PrintStudent(current->data);
+        current = current->pNext;
+    }
 }
