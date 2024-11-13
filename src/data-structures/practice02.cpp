@@ -233,7 +233,7 @@ Node<int>* GetLargestOddItem(const List<int>* list)
 }
 
 // Excercise02
-List<Student*>* CreateStudentList()
+List<StudentPtr>* CreateStudentList()
 {
     List<Student*>* list = CreateList<Student*>();
     AddTail(list, new Student { .id = 123, .fullName = "Nguyen Van A", .gpa = 9.1, .performance = EAcademicPerformance::A });
@@ -247,23 +247,23 @@ List<Student*>* CreateStudentList()
     AddTail(list, new Student { .id = 131, .fullName = "Nguyen Van K", .gpa = 9.0, .performance = EAcademicPerformance::A });
     return list;
 }
-Student* GetHighestGPA(const List<Student*>* list)
+StudentPtr GetHighestGPA(const List<StudentPtr>* list)
 {
     return nullptr;
 }
-Student* GetHighestGPAStudent(const List<Student*>* list)
+StudentPtr GetHighestGPAStudent(const List<StudentPtr>* list)
 {
     return nullptr;
 }
-Student* GetLowestGPAStudent(const List<Student*>* list)
+StudentPtr GetLowestGPAStudent(const List<StudentPtr>* list)
 {
     return nullptr;
 }
-Student* FindStudentById(const List<Student*>* list, const int id) 
+StudentPtr FindStudentById(const List<StudentPtr>* list, const int id) 
 { 
     return nullptr;
 }
-void PrintStudents(const List<Student*>* list)
+void PrintStudents(const List<StudentPtr>* list)
 {
     if (list == nullptr) return;
 

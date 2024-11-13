@@ -3,7 +3,7 @@
 
 using namespace std;
 
-void PrintStudent(const Student* student) 
+void PrintStudent(const StudentPtr student) 
 {
     if (student == nullptr) 
     {
