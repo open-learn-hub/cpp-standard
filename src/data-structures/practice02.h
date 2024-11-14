@@ -1,3 +1,6 @@
+#ifndef PRACTICE_02_H
+#define PRACTICE_02_H
+
 #include "data-structures/linkedlist.h"
 #include "data-structures/student.h"
 
@@ -26,3 +29,4 @@ namespace practice02
     StudentPtr FindStudentById(const List<StudentPtr>* list, const int id);
     void PrintStudents(const List<StudentPtr>* list);
 }
+#endif
