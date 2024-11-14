@@ -1,5 +1,8 @@
 #include "data-structures/linkedlist.h"
 #include "data-structures/student.h"
+
+using namespace sll;
+
 namespace practice02
 {
     void Exercise01();
