@@ -7,7 +7,7 @@
 
 void ExecutePractice05()
 {
-    HashTable<int>* table = CreateHashTable<int>(DivideHashFunction);
+    HashTable<int>* table = CreateHashTable<int>(DivideHashFunction, 10);
 
     // for (int i = 0; i < 10; i ++)
     // {
@@ -41,7 +41,7 @@ void PrintHashTable(HashTable<int>* hashtable)
     };
     
     std::cout << "{" << std::endl;
-    for (int i = 0; i < TABLE_MAX_SIZE; i++)
+    for (int i = 0; i < hashtable->keySize; i++)
     {
         int currentCount = dll::Count(hashtable->buckets[i]);
         if (currentCount > 0)

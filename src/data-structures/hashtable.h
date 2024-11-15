@@ -24,6 +24,7 @@ struct HashTable
 {
     BucketPtr<T>* buckets;
     std::function<int(int,T)> hashFunction;
+    int keySize;
 };
 
 template<typename T>
@@ -40,14 +41,29 @@ HashTablePtr<T> CreateHashTable(std::function<int(int,T)> hashFunction)
         hashtable->buckets[i] = CreateBucket<T>();
     }
     hashtable->hashFunction = hashFunction;
+    hashtable->keySize = TABLE_MAX_SIZE;
+    return hashtable;
+}
+
+template<typename T>
+HashTablePtr<T> CreateHashTable(std::function<int(int,T)> hashFunction, const int keySize)
+{
+    HashTablePtr<T> hashtable = new HashTable<T>();
+    hashtable->buckets = new BucketPtr<T>[keySize];
+    for (int i = 0; i < keySize; i ++)
+    {
+        hashtable->buckets[i] = CreateBucket<T>();
+    }
+    hashtable->hashFunction = hashFunction;
+    hashtable->keySize = keySize;
     return hashtable;
 }
 
 template<typename T>
 void Add(HashTablePtr<T> table, const T value)
 {
-    int index = table->hashFunction(TABLE_MAX_SIZE, value);    
-    if (index >= 0 && index < TABLE_MAX_SIZE)
+    int index = table->hashFunction(table->keySize, value);    
+    if (index >= 0 && index < table->keySize)
     {
         dll::Add(table->buckets[index], value);
         return;
