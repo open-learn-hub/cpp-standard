@@ -4,6 +4,7 @@
 #include "data-structures/practice02.h"
 #include "data-structures/practice03.h"
 #include "data-structures/practice04.h"
+#include "data-structures/practice05.h"
 
 using namespace std;
 
@@ -11,7 +12,7 @@ int main(int argc, char* argv[])
 {
     InitRandomSeed();
 
-    ExecutePractice04();
+    ExecutePractice05();
     
     return 0;
 }
