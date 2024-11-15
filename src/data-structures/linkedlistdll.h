@@ -1,5 +1,6 @@
 #ifndef LINKED_LIST_DOUBLY_H
 #define LINKED_LIST_DOUBLY_H
+#include <functional>
 namespace dll
 {
     template<typename T>
