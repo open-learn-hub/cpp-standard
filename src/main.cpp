@@ -3,6 +3,7 @@
 #include "data-structures/practice01.h"
 #include "data-structures/practice02.h"
 #include "data-structures/practice03.h"
+#include "data-structures/practice04.h"
 
 using namespace std;
 
@@ -10,7 +11,7 @@ int main(int argc, char* argv[])
 {
     InitRandomSeed();
 
-    ExecutePractice03();
+    ExecutePractice04();
     
     return 0;
 }

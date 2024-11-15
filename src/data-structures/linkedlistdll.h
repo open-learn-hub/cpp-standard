@@ -111,6 +111,8 @@ namespace dll
                     it3->pPrevious = it1;
                 }
 
+                delete current;
+                current = nullptr;
                 // Terminate
                 return true;
             }
