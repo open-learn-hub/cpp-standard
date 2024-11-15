@@ -3,7 +3,7 @@
 
 #include "hashtable.h"
 
-int DivideHashFunction(int size, const int& value);
+int DivisionHashFunction(int size, const int& value);
 void PrintHashTable(HashTable<int>* hashtable);
 void ExecutePractice05();
 

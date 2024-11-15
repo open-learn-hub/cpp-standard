@@ -7,12 +7,12 @@
 
 void ExecutePractice05()
 {
-    HashTable<int>* table = CreateHashTable<int>(DivideHashFunction, 10);
+    HashTable<int>* table = CreateHashTable<int>(DivisionHashFunction, 10);
 
-    // for (int i = 0; i < 10; i ++)
-    // {
-    //     Add(table, RandRange(20));
-    // }
+    for (int i = 0; i < 10; i ++)
+    {
+        Add(table, RandRange(20));
+    }
     Add(table, 50);
     Add(table, 73);
     Add(table, 35);
@@ -28,7 +28,7 @@ void ExecutePractice05()
     PrintHashTable(table);
 }
 
-int DivideHashFunction(int size, const int& value)
+int DivisionHashFunction(int size, const int& value)
 {
     return abs(value % size);
 }
