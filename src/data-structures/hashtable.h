@@ -35,13 +35,13 @@ template<typename T>
 HashTablePtr<T> CreateHashTable(std::function<int(int,T)> hashFunction)
 {
     HashTablePtr<T> hashtable = new HashTable<T>();
-    hashtable->buckets = new BucketPtr<T>[TABLE_MAX_SIZE];
-    for (int i = 0; i < TABLE_MAX_SIZE; i ++)
+    hashtable->keySize = TABLE_MAX_SIZE;
+    hashtable->buckets = new BucketPtr<T>[hashtable->keySize];
+    for (int i = 0; i < hashtable->keySize; i ++)
     {
         hashtable->buckets[i] = CreateBucket<T>();
     }
-    hashtable->hashFunction = hashFunction;
-    hashtable->keySize = TABLE_MAX_SIZE;
+    hashtable->hashFunction = hashFunction;    
     return hashtable;
 }
 
